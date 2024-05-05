@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BaseColaboradores } from "../../../BaseColaboradores";
 
-const Formulario = () => {
+const Formulario = ({ mensajeError, setMensajeError }) => {
   const [idLista, setIdLista] = useState("");
   const [nombreLista, setNombreLista] = useState("");
   const [emailLista, setEmailLista] = useState("");
@@ -9,12 +9,12 @@ const Formulario = () => {
   const [cargoLista, setCargoLista] = useState("");
   const [telefonoLista, setTelefonoLista] = useState("");
 
-  const [listadoInicial, setListadoInicial] = useState({ BaseColaboradores });
+  const [baseCol, setBaseCol] = useState({ BaseColaboradores });
 
   const enviarFormulario = (e) => {
     e.preventDefault();
-    setListadoInicial([
-      ...listadoInicial,
+    setBaseCol([
+      ...baseCol,
       {
         id: idLista,
         nombre: nombreLista,
@@ -51,12 +51,34 @@ const Formulario = () => {
     setTelefonoLista(e.target.value);
   };
 
+  if (
+    idLista === "" ||
+    nombreLista === "" ||
+    emailLista === "" ||
+    edadLista === "" ||
+    cargoLista === "" ||
+    telefonoLista === ""
+  ) {
+    // setError(true);
+    setMensajeError("Todos los campos son obligatorios");
+    return; // si existe error, no avanza en la lógica del programa
+  }
+
+  // Si el formulario se envía correctamente devolvemos todos nuestros inputs al inicio, se resetea el formulario
+  // setError(false); //elimina el mensaje de error
+  setMensajeError("Registro completo"); // Mensaje de éxito
+  setNombreLista("");
+  setEmailLista("");
+  setEdadLista("");
+  setCargoLista("");
+  setTelefonoLista("");
+
   return (
     <>
       <form onSubmit={enviarFormulario}>
         <div className="mb-3">
-          <label>Ingrese id</label>
           <input
+            placeholder="Ingrese Id"
             name="id"
             onChange={inputId}
             type="text"
@@ -66,65 +88,64 @@ const Formulario = () => {
           />
         </div>
         <div className="mb-3">
-          <label>Ingrese nombre</label>
           <input
+            placeholder="Ingrese nombre"
             name="nombre"
             onChange={inputNombre}
             type="text"
             className="form-control"
             id="name"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label>Ingrese email</label>
           <input
+            placeholder="Ingresa email"
             name="nombre"
             onChange={inputEmail}
             type="email"
             className="form-control"
             id="Email"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label>Ingrese edad</label>
           <input
+            placeholder="Ingrese edad"
             name="edad"
             onChange={inputEdad}
             type="number"
             className="form-control"
             id="age"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label>Ingrese cargo</label>
           <input
+            placeholder="Ingrese cargo"
             name="nombre"
             onChange={inputCargo}
             type="text"
             className="form-control"
             id="cargo"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label>Teléfono</label>
           <input
+            placeholder="Ingrese teléfono"
             name="telefono"
             onChange={inputTelefono}
-            type="number"
+            type="text"
             className="form-control"
             id="phone"
-            aria-describedby="emailHelp"
           />
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Submit
+          Agregar colaborador
         </button>
       </form>
+      <div className="mt-2">
+        {" "}
+        {mensajeError && <p className="error">{mensajeError}</p>}{" "}
+      </div>
     </>
   );
 };

@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+.error {
+  padding: 10px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.exito {
+  padding: 10px;
+  color: white;
+  background-color: green;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 10px;
+}
