@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { BaseColaboradores } from "./BaseColaboradores";
 import Listado from "./assets/componentes/listado/Listado";
 import Formulario from "./assets/componentes/formulario/Formulario";
 import Alert from "./assets/componentes/alert/Alert";
 import Buscador from "./assets/componentes/buscador/Buscador";
+import { BaseColaboradores } from "./BaseColaboradores";
 
 function App() {
   const [baseCol, setBaseCol] = useState(BaseColaboradores);
@@ -22,7 +22,7 @@ function App() {
         setFiltroColaboradores={setFiltroColaboradores}
       />
       {/* <Listado colaboradores={baseCol} /> */}
-      <Listado colaboradores={filtroColaboradores.length > 0 ? filtroColaboradores : baseCol} />
+      <Listado colaboradores={filtroColaboradores.length > 0 ? filtroColaboradores : baseCol} setBaseCol={setBaseCol}  />
 
       {/* pasamos baseCol como propiedad llamada colaboradores al componente listado  */}
       <h2 className="mb-3">Agregue un nuevo Colaborador</h2>

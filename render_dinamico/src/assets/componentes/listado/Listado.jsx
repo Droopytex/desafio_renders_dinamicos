@@ -1,8 +1,11 @@
-import { useState } from "react";
+import React from "react";
 
-const Listado = ({ colaboradores, eliminarColaborador }) => {
+const Listado = ({ colaboradores, setBaseCol }) => {
   const handleEliminar = (id) => {
-    eliminarColaborador(id);
+    // Filtrar los colaboradores para eliminar el que tiene el ID correspondiente
+    const colaboradorFiltrado = colaboradores.filter((colaborador) => colaborador.id !== id);
+    // Actualizar el estado de colaboradores con la lista filtrada
+    setBaseCol(colaboradorFiltrado);
   };
   // recibo colaboradores como prop en el componente
   return (
@@ -30,9 +33,10 @@ const Listado = ({ colaboradores, eliminarColaborador }) => {
                 <td>{colaborador.edad}</td>
                 <td>{colaborador.cargo}</td>
                 <td>{colaborador.telefono}</td>
-                <button onClick={() => handleEliminar(colaborador.id)}>
+                <td><button onClick={() => handleEliminar(colaborador.id)}>
                   X
-                </button>
+                </button></td>
+                
               </tr>
             ))}
           </tbody>
