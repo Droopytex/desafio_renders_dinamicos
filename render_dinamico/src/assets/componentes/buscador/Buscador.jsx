@@ -29,7 +29,7 @@ const Buscador = ({ baseColaboradores, setFiltroColaboradores }) => {
   };
 
   return (
-    <div className="mb-3">
+    <div className="mb-3 col-12">
       <input
         type="text"
         placeholder="Buscar colaborador..."

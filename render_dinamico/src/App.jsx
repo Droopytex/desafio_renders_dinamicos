@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <h1>Registro de Colaboradores</h1>
+      <h1 className="mb-5">Registro de Colaboradores</h1>
       <Buscador
         baseColaboradores={baseCol}
         setFiltroColaboradores={setFiltroColaboradores}
@@ -25,7 +25,7 @@ function App() {
       <Listado colaboradores={filtroColaboradores.length > 0 ? filtroColaboradores : baseCol} />
 
       {/* pasamos baseCol como propiedad llamada colaboradores al componente listado  */}
-      <h2>Agregue un nuevo Colaborador</h2>
+      <h2 className="mb-3">Agregue un nuevo Colaborador</h2>
       <Formulario setBaseCol={setBaseCol} />
       {/* setBaseCol se pasa como propiedad a formulario */}
       <Alert  />

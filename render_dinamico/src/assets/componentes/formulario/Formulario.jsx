@@ -55,7 +55,7 @@ const Formulario = ({ setBaseCol }) => {
 
   return (
     <>
-      <form onSubmit={enviarFormulario}>
+      <form className="col-12" onSubmit={enviarFormulario}>
         <div className="mb-3">
           <input
             placeholder="Ingrese Id"

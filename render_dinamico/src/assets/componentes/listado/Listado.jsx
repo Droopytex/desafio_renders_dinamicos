@@ -4,7 +4,8 @@ const Listado = ({ colaboradores }) => {
   // recibo colaboradores como prop en el componente 
   return (
     <>
-      <table className="table table-striped">
+    <div className="table-responsive-sm">
+      <table className="col-12 mt-5 mb-5 table table-striped">
         <thead>
           <tr>
             <th scope="col">id</th>
@@ -29,6 +30,7 @@ const Listado = ({ colaboradores }) => {
             ))}
                  </tbody>
       </table>
+      </div>
       </>
   );
 };
