@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BaseColaboradores } from "../../../BaseColaboradores";
 
 
-const Formulario = ({ setBaseCol }) => {
+const Formulario = ({ setBaseCol, mensajeError, setMensajeError }) => {
   const [nuevoColaborador, setNuevoColaborador] = useState({
     id: "",
     nombre: "",
@@ -11,7 +11,7 @@ const Formulario = ({ setBaseCol }) => {
     cargo: "",
     telefono: "",
   });
-  const [mensajeError, setMensajeError] = useState("");
+  // const [mensajeError, setMensajeError] = useState("");
 
   const enviarFormulario = (e) => {
     e.preventDefault(); // Evita que se recargue la página al enviar el formulario

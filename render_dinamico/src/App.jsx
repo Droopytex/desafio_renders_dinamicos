@@ -9,7 +9,7 @@ import Buscador from "./assets/componentes/buscador/Buscador";
 function App() {
   const [baseCol, setBaseCol] = useState(BaseColaboradores);
   const [filtroColaboradores, setFiltroColaboradores] = useState([]);
-  // const [mensajeError, setMensajeError] = useState(""); // Estado para mensaje de error o éxito
+  const [mensajeError, setMensajeError] = useState(""); // Estado para mensaje de error o éxito
   //mensajeError es el estado que almacena el mensaje de erro o éxito y
   //setMensajeError es la función para actualizar ese estado
   console.log(baseCol);
@@ -26,10 +26,11 @@ function App() {
 
       {/* pasamos baseCol como propiedad llamada colaboradores al componente listado  */}
       <h2 className="mb-3">Agregue un nuevo Colaborador</h2>
-      <Formulario setBaseCol={setBaseCol} />
+      <Formulario setBaseCol={setBaseCol} setMensajeError={setMensajeError} />
       {/* setBaseCol se pasa como propiedad a formulario */}
-      <Alert  />
-
+      <div className="mt-3">
+      <Alert mensajeError={mensajeError} />
+      </div>
       {/* llamando al mensaje por props  */}
     </>
   );
