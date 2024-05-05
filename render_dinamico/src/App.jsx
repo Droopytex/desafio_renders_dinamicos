@@ -12,9 +12,12 @@ function App() {
 
   return (
     <>
-      <Listado colaboradores={baseCol} /> 
+      <h1>Registro de Colaboradores</h1>
+      <Listado colaboradores={baseCol} />
       {/* pasamos baseCol como propiedad llamada colaboradores al componente listado  */}
-      <Formulario />
+      <h2>Agregue un nuevo Colaborador</h2>
+      <Formulario setBaseCol={setBaseCol} />
+      {/* setBaseCol se pasa como propiedad a formulario */}
       <Alert mensajeError={mensajeError} setMensajeError={setMensajeError} />
     </>
   );

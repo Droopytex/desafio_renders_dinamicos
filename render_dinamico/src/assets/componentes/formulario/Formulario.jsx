@@ -13,7 +13,7 @@ const Formulario = ({ setBaseCol }) => {
   const [mensajeError, setMensajeError] = useState("");
 
   const enviarFormulario = (e) => {
-    e.preventDefault();
+    e.preventDefault();   // Evita que se recargue la página al enviar el formulario
 
     if (
       !nuevoColaborador.id ||
