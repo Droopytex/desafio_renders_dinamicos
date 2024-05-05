@@ -3,7 +3,9 @@ import React from "react";
 const Listado = ({ colaboradores, setBaseCol }) => {
   const handleEliminar = (id) => {
     // Filtrar los colaboradores para eliminar el que tiene el ID correspondiente
-    const colaboradorFiltrado = colaboradores.filter((colaborador) => colaborador.id !== id);
+    const colaboradorFiltrado = colaboradores.filter(
+      (colaborador) => colaborador.id !== id
+    );
     // Actualizar el estado de colaboradores con la lista filtrada
     setBaseCol(colaboradorFiltrado);
   };
@@ -20,7 +22,7 @@ const Listado = ({ colaboradores, setBaseCol }) => {
               <th scope="col">Edad</th>
               <th scope="col">Cargo</th>
               <th scope="col">Teléfono</th>
-              <th scope="col">Borrar</th>
+              <th scope="col">Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -33,10 +35,14 @@ const Listado = ({ colaboradores, setBaseCol }) => {
                 <td>{colaborador.edad}</td>
                 <td>{colaborador.cargo}</td>
                 <td>{colaborador.telefono}</td>
-                <td><button onClick={() => handleEliminar(colaborador.id)}>
-                  X
-                </button></td>
-                
+                <td>
+                  <button
+                    className="bg-danger text-ligth  "
+                    onClick={() => handleEliminar(colaborador.id)}
+                  >
+                    Eliminar
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
