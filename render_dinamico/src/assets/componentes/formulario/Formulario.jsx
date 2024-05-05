@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { baseColaboradoresInicial } from "../../BaseColaboradores";
+import { BaseColaboradores } from "../../../BaseColaboradores";
 
 const Formulario = () => {
   const [idLista, setIdLista] = useState("");
@@ -9,9 +9,7 @@ const Formulario = () => {
   const [cargoLista, setCargoLista] = useState("");
   const [telefonoLista, setTelefonoLista] = useState("");
 
-  const [listadoInicial, setListadoInicial] = useState(
-    baseColaboradoresInicial
-  );
+  const [listadoInicial, setListadoInicial] = useState({ BaseColaboradores });
 
   const enviarFormulario = (e) => {
     e.preventDefault();
