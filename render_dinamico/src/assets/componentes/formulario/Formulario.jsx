@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BaseColaboradores } from "../../../BaseColaboradores";
 
+
 const Formulario = ({ setBaseCol }) => {
   const [nuevoColaborador, setNuevoColaborador] = useState({
     id: "",
@@ -13,7 +14,7 @@ const Formulario = ({ setBaseCol }) => {
   const [mensajeError, setMensajeError] = useState("");
 
   const enviarFormulario = (e) => {
-    e.preventDefault();   // Evita que se recargue la página al enviar el formulario
+    e.preventDefault(); // Evita que se recargue la página al enviar el formulario
 
     if (
       !nuevoColaborador.id ||
@@ -115,21 +116,15 @@ const Formulario = ({ setBaseCol }) => {
             className="form-control"
           />
         </div>
+        <div className="mt-2">{mensajeError && <p className="error">{mensajeError}</p>}</div>
 
         <button type="submit" className="btn btn-primary">
           Agregar colaborador
         </button>
       </form>
-
-      {mensajeError && <p className="error">{mensajeError}</p>}
     </>
   );
 };
-
-
-
-
-
 
 // const Formulario = ({ mensajeError, setMensajeError }) => {
 //   const [idLista, setIdLista] = useState("");
@@ -193,8 +188,6 @@ const Formulario = ({ setBaseCol }) => {
 //   const inputTelefono = (e) => {
 //     setTelefonoLista(e.target.value);
 //   };
-
-
 
 //   // Si el formulario se envía correctamente devolvemos todos nuestros inputs al inicio, se resetea el formulario
 //   // setError(false); //elimina el mensaje de error
