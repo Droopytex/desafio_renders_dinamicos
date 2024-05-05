@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const Listado = () => {
+const Listado = ({ colaboradores }) => {
+  // recibo colaboradores como prop en el componente 
   return (
     <>
       <table className="table table-striped">
@@ -15,33 +16,20 @@ const Listado = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Otto</td>
+          {/* el método map se utiliza para iterar sobre el array de "colaboradores" y generar dinámicamente las filas de la tabla basadas en los datos  */}
+        {colaboradores.map((colaborador) => (
+           <tr key={colaborador.id}>
+           <th scope="row">{colaborador.id}</th>
+           <td>{colaborador.nombre}</td>
+              <td>{colaborador.correo}</td>
+              <td>{colaborador.edad}</td>
+              <td>{colaborador.cargo}</td>
+              <td>{colaborador.telefono}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
+            ))}
+                 </tbody>
       </table>
-    </>
+      </>
   );
 };
 
