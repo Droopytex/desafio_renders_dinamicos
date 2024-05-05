@@ -36,8 +36,8 @@ const Listado = ({ colaboradores, setBaseCol }) => {
                 <td>{colaborador.cargo}</td>
                 <td>{colaborador.telefono}</td>
                 <td>
-                  <button
-                    className="bg-danger text-ligth  "
+                  <button type="button"
+                    className="btn btn-danger text-white p-2 border-0 rounded-sm "
                     onClick={() => handleEliminar(colaborador.id)}
                   >
                     Eliminar
